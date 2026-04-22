@@ -27,5 +27,3 @@ jobs:
 
       - name: Push com Docker Compose
         run: docker compose push
-
-  
