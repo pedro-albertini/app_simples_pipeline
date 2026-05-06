@@ -2,29 +2,32 @@ services:
 
   db:
     image: postgres:15-alpine
+    container_name: pedro_albertini
     environment:
       POSTGRES_USER: fatec_user
       POSTGRES_PASSWORD: fatec_password
       POSTGRES_DB: todolist
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pedro_data:/var/lib/postgresql/data
 
   api:
     build: ./backend
-    restart: always  
+    container_name: pedro_api
+    restart: always 
     environment:
       DB_HOST: db
     depends_on:
       - db
     ports:
-      - "3000:3000"
+      - "3029:3000"
 
   web:
     build: ./frontend
+    container_name: pedro_web
     ports:
-      - "80:80"
+      - "8029:80"
     depends_on:
       - api
 
 volumes:
-  postgres_data:
+  pedro_data:
