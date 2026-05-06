@@ -22,7 +22,7 @@ services:
       - "3029:3000"
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/tarefas"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
